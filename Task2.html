@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netflix UI Clone</title>
+
+<style>
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #111;
+    color: white;
+}
+
+/* ================= NAVBAR ================= */
+.nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
+    z-index: 100;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #e50914;
+}
+
+.avatar {
+    width: 35px;
+    border-radius: 4px;
+}
+
+/* ================= BANNER ================= */
+.banner {
+    height: 90vh;
+    background: url("https://wallpapers.com/images/featured/netflix-background-gs7hjuwvv2g0e9fj.jpg")
+    center/cover no-repeat;
+    display: flex;
+    align-items: center;
+}
+
+.banner-content {
+    margin-left: 50px;
+    max-width: 500px;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.banner p {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.banner button {
+    padding: 10px 25px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.play {
+    background: white;
+    color: black;
+}
+
+.info {
+    background: rgba(109,109,110,0.7);
+    color: white;
+}
+
+/* ================= ROWS ================= */
+.row {
+    margin-top: 30px;
+    padding-left: 40px;
+}
+
+.row h2 {
+    margin-bottom: 10px;
+}
+
+.row-posters {
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 10px;
+}
+
+.row-posters::-webkit-scrollbar {
+    display: none;
+}
+
+.poster {
+    width: 180px;
+    margin-right: 10px;
+    transition: transform 0.3s;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.poster:hover {
+    transform: scale(1.2);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .banner h1 {
+        font-size: 2rem;
+    }
+    .banner-content {
+        margin-left: 20px;
+    }
+    .poster {
+        width: 120px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="nav">
+    <div class="logo">NETFLIX</div>
+    <img class="avatar" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png">
+</div>
+
+<!-- BANNER -->
+<header class="banner">
+    <div class="banner-content">
+        <h1>Money Heist</h1>
+        <p>
+            An unusual group of robbers attempt to carry out the most perfect robbery in Spanish history.
+        </p>
+        <button class="play">▶ Play</button>
+        <button class="info">ℹ More Info</button>
+    </div>
+</header>
+
+<!-- ROWS -->
+<section class="row">
+    <h2>Trending Now</h2>
+    <div class="row-posters">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/qJ2tW6WMUDux911r6m7haRef0WH.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/uxzzxijgPIY7slzFvMotPv8wjKA.jpg">
+    </div>
+</section>
+
+<section class="row">
+    <h2>Top Rated</h2>
+    <div class="row-posters">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/5KCVkau1HEl7ZzfPsKAPM0sMiKc.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/6ELJEzQJ3Y45HczvreC3dg0GV5R.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/hEjK9A9BkNXejFW4tfacVAEHtkn.jpg">
+    </div>
+</section>
+
+<section class="row">
+    <h2>Action Movies</h2>
+    <div class="row-posters">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/vqzNJRH4YyquRiWxCCOH0aXggHI.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/keIxh0wPr2Ymj0Btjh4gW7JJ89e.jpg">
+        <img loading="lazy" class="poster" src="https://image.tmdb.org/t/p/w300/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg">
+    </div>
+</section>
+
+<script>
+// NAVBAR SCROLL EFFECT
+window.addEventListener("scroll", () => {
+    const nav = document.querySelector(".nav");
+    if (window.scrollY > 100) {
+        nav.style.backgroundColor = "#111";
+    } else {
+        nav.style.backgroundColor = "transparent";
+    }
+});
+</script>
+
+</body>
+</html>
